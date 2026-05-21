@@ -5,7 +5,7 @@ import os
 app = Flask(__name__)
 
 # 🔴 Paste your Azure connection string here
-CONNECTION_STRING = "PASTE_YOUR_CONNECTION_STRING"
+CONNECTION_STRING = os.getenv("AZURE_CONNECTION_STRING")
 
 CONTAINER_NAME = "uploads"
 
@@ -146,4 +146,9 @@ def delete(filename):
 
 # ---------------- RUN APP ----------------
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', debug=True)
+
+
+
+
+    # host='0.0.0.0'
